@@ -106,6 +106,7 @@ function blockFunction(User: User) {
             const unCachedUids = User.blocks._cache.getUnCachedKeys(uids, cachedData);
             if (unCachedUids.length) {
                 // The next line calls a function in a module that has not been updated to TS yet
+                // eslint-disable-next-line max-len
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-assignment
                 const unCachedData: string[][] = await db.getSortedSetsMembers(
                     unCachedUids.map(uid => `uid:${uid}:blocked_uids`)
